@@ -4,16 +4,24 @@ export class Flavors extends LitElement {
   constructor() {
     super();
     // Declare reactive properties
+    this.flavors = {};
   }
   // Render the UI as a function of component state
   render() {
+    if (typeof this.flavors !== "string") {
+      return html``;
+    }
+    const { name } = JSON.parse(this.flavors);
+    console.log("name ==>", name);
     return html`
-      <p>Pico CPUs: 1 CPUs: 0 RAM:256</p>
+      <p>${name} CPUs: 1 CPUs: 0 RAM:256</p>
       <button>select</button>
     `;
   }
 }
-Flavors.properties = {};
+Flavors.properties = {
+  flavors: {},
+};
 // Define scoped styles right with your component, in plain CSS
 Flavors.styles = css`
   p {
