@@ -15,9 +15,11 @@ window.addEventListener("DOMContentLoaded", async () => {
   const $ul = $("#variants");
   response.forEach((obj) => {
     const variant = obj.variant;
+    const flavors = obj.flavors;
     const $li = createNode("li");
     const $ccVariant = createNode("cc-variant");
     $ccVariant.setAttribute("variant", JSON.stringify(variant));
+    $ccVariant.setAttribute("flavors", JSON.stringify(flavors));
     append($li, $ccVariant);
     append($ul, $li);
   });
@@ -34,4 +36,9 @@ window.addEventListener("DOMContentLoaded", async () => {
   // } catch (error) {
   //   console.log("error ==>", error);
   // }
+});
+
+window.addEventListener("flavorsSelected", function (e) {
+  const flavors = e.detail;
+  console.log("flavors ==>", flavors);
 });
