@@ -4,25 +4,23 @@ export class Variant extends LitElement {
   constructor() {
     super();
     // Declare reactive properties
-    this.name = "World";
+    this.variant = {};
   }
-
   // Render the UI as a function of component state
   render() {
+    if (typeof this.variant !== "string") {
+      return;
+    }
+    const { name, logo } = JSON.parse(this.variant);
     return html`
-      <img
-        src="https://via.placeholder.com/30"
-        alt="#"
-        width="30"
-        height="30"
-      />
-      <span>description description</span>
+      <img src="${logo}" alt="${name}" width="30" height="30" />
+      <span>${name}</span>
       <button>select</button>
     `;
   }
 }
 Variant.properties = {
-  name: {},
+  variant: {},
 };
 // Define scoped styles right with your component, in plain CSS
 Variant.styles = css`
