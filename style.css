@@ -61,20 +61,11 @@ main {
 }
 
 /* aside content */
-.box-variants {
+.box-variants,
+.box-flavors {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-}
-
-.box-flavors li {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.box-flavors li p {
-  flex: 1;
 }
 
 /* end aside content */

@@ -40,6 +40,14 @@ window.addEventListener("DOMContentLoaded", async () => {
 });
 
 window.addEventListener("flavorsSelected", function (e) {
+  const $ul = $("#flavors");
+  $ul.innerHTML = "";
   const flavors = e.detail;
-  console.log("flavors ==>", flavors);
+  flavors.forEach((obj) => {
+    const $li = createNode("li");
+    const $ccFlavors = createNode("cc-flavors");
+    $ccFlavors.setAttribute("flavors", JSON.stringify(obj));
+    append($li, $ccFlavors);
+    append($ul, $li);
+  });
 });
