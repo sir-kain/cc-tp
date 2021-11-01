@@ -1,5 +1,6 @@
 import "./style.css";
 import "./components/variant";
+import "./components/flavors";
 import response from "./data";
 
 function $(selector) {

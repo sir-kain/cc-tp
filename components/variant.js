@@ -13,7 +13,6 @@ export class Variant extends LitElement {
       return;
     }
     const { name, logo } = JSON.parse(this.variant);
-    const flavors = JSON.parse(this.flavors);
     return html`
       <img src="${logo}" alt="${name}" width="30" height="30" />
       <span>${name}</span>
