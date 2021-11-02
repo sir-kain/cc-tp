@@ -7,14 +7,19 @@ export class Cart extends LitElement {
     this.flavor = {};
     this.variant = {};
   }
+
+  formatFlaforPrice(price) {
+    return price * 41.904;
+  }
   // Render the UI as a function of component state
   render() {
-    if (typeof this.flavor !== "string") {
+    if (typeof this.flavor !== "string" || typeof this.variant !== "string") {
       return html``;
     }
-    const { name } = JSON.parse(this.flavor);
+    const { name: vName } = JSON.parse(this.variant);
+    const { name: fName, price } = JSON.parse(this.flavor);
     return html`
-      <p>${name}</p>
+      <p>${vName} - ${fName} - ${this.formatFlaforPrice(price)}</p>
       <button @click="${this.removeItemFromCart}">remove</button>
     `;
   }

@@ -1,6 +1,6 @@
 import "./style.css";
 import "./components/variant";
-import "./components/flavors";
+import "./components/flavor";
 import "./components/cart";
 import response from "./data";
 
