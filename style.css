@@ -62,10 +62,10 @@ main {
 
 /* aside content */
 .box-variants,
+.box-cart,
 .box-flavors {
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
-
 /* end aside content */

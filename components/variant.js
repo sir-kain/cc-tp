@@ -16,16 +16,16 @@ export class Variant extends LitElement {
     return html`
       <img src="${logo}" alt="${name}" width="30" height="30" />
       <span>${name}</span>
-      <button @click="${this.selectFlavors}">select</button>
+      <button @click="${this.selectVariant}">select</button>
     `;
   }
 
-  selectFlavors() {
+  selectVariant() {
     if (typeof this.flavors !== "string") {
       return;
     }
     window.dispatchEvent(
-      new CustomEvent("flavorsSelected", { detail: JSON.parse(this.flavors) })
+      new CustomEvent("variantSelected", { detail: JSON.parse(this.flavors) })
     );
   }
 }

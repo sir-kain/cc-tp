@@ -14,8 +14,14 @@ export class Flavors extends LitElement {
     const { name, cpus, gpus, mem } = JSON.parse(this.flavors);
     return html`
       <p>${name} CPUs: ${cpus} GPUs: ${gpus} RAM: ${mem}</p>
-      <button>select</button>
+      <button @click="${this.selectFlavor}">select</button>
     `;
+  }
+
+  selectFlavor() {
+    window.dispatchEvent(
+      new CustomEvent("flavorsSelected", { detail: JSON.parse(this.flavors) })
+    );
   }
 }
 Flavors.properties = {

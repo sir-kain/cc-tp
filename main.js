@@ -46,7 +46,7 @@ window.addEventListener("DOMContentLoaded", async () => {
   // }
 });
 
-window.addEventListener("flavorsSelected", function (e) {
+window.addEventListener("variantSelected", function (e) {
   const $ul = $("#flavors");
   $ul.innerHTML = "";
   const flavors = e.detail;
@@ -57,4 +57,14 @@ window.addEventListener("flavorsSelected", function (e) {
     append($li, $ccFlavors);
     append($ul, $li);
   });
+});
+
+window.addEventListener("flavorsSelected", function (e) {
+  const $ul = $("#cart");
+  const flavor = e.detail;
+  const $li = createNode("li");
+  const $ccCart = createNode("cc-cart");
+  $ccCart.setAttribute("flavor", JSON.stringify(flavor));
+  append($li, $ccCart);
+  append($ul, $li);
 });

@@ -4,24 +4,23 @@ export class Cart extends LitElement {
   constructor() {
     super();
     // Declare reactive properties
-    this.flavors = {};
+    this.flavor = {};
     this.variant = {};
   }
   // Render the UI as a function of component state
   render() {
-    // if (typeof this.flavors !== "string" || typeof this.variant !== "string") {
-    //   return html``;
-    // }
-    // const { name, cpus, gpus, mem } = JSON.parse(this.flavors);
-    // <p>${name} CPUs: ${cpus} GPUs: ${gpus} RAM: ${mem}</p>
+    if (typeof this.flavor !== "string") {
+      return html``;
+    }
+    const { name } = JSON.parse(this.flavor);
     return html`
-      <p>okko</p>
+      <p>${name}</p>
       <button>remove</button>
     `;
   }
 }
 Cart.properties = {
-  flavors: {},
+  flavor: {},
   variant: {},
 };
 // Define scoped styles right with your component, in plain CSS
