@@ -11,10 +11,9 @@ export class Flavors extends LitElement {
     if (typeof this.flavors !== "string") {
       return html``;
     }
-    const { name } = JSON.parse(this.flavors);
-    console.log("name ==>", name);
+    const { name, cpus, gpus, mem } = JSON.parse(this.flavors);
     return html`
-      <p>${name} CPUs: 1 CPUs: 0 RAM:256</p>
+      <p>${name} CPUs: ${cpus} GPUs: ${gpus} RAM: ${mem}</p>
       <button>select</button>
     `;
   }

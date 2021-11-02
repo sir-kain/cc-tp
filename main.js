@@ -24,24 +24,25 @@ window.addEventListener("DOMContentLoaded", async () => {
     append($li, $ccVariant);
     append($ul, $li);
   });
-  try {
-    const response = await fetch(
-      "https://api.clever-cloud.com/v2/products/instance",
-      {
-        headers: {
-          contentType: "application/json",
-        },
-      }
-    );
-    if (response.ok) {
-      const variant = await response.json();
-      console.log("variant ==>", variant);
-    } else {
-      throw response;
-    }
-  } catch (error) {
-    console.log("error ==>", error);
-  }
+  // try {
+  //   const response = await fetch(
+  //     "https://api.clever-cloud.com/v2/products/instance",
+  //     {
+  //       headers: {
+  //         contentType: "application/json",
+  //         accept: "json",
+  //       },
+  //     }
+  //   );
+  //   if (response.ok) {
+  //     const variant = await response.json();
+  //     console.log("variant ==>", variant);
+  //   } else {
+  //     throw response;
+  //   }
+  // } catch (error) {
+  //   console.log("error ==>", error);
+  // }
 });
 
 window.addEventListener("flavorsSelected", function (e) {
