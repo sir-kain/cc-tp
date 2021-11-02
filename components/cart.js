@@ -15,8 +15,15 @@ export class Cart extends LitElement {
     const { name } = JSON.parse(this.flavor);
     return html`
       <p>${name}</p>
-      <button>remove</button>
+      <button @click="${this.removeItemFromCart}">remove</button>
     `;
+  }
+
+  removeItemFromCart() {
+    this.closest("li").remove();
+    window.dispatchEvent(
+      new CustomEvent("itemRemoved", { detail: JSON.parse(this.flavor) })
+    );
   }
 }
 Cart.properties = {

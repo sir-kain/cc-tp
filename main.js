@@ -13,6 +13,7 @@ function createNode(element) {
 function append(parent, el) {
   return parent.appendChild(el);
 }
+
 window.addEventListener("DOMContentLoaded", async () => {
   const $ul = $("#variants");
   response.forEach((obj) => {
