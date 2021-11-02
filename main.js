@@ -47,25 +47,27 @@ window.addEventListener("DOMContentLoaded", async () => {
   // }
 });
 
-window.addEventListener("variantSelected", function (e) {
+window.addEventListener("variantSelected", (e) => {
   const $ul = $("#flavors");
   $ul.innerHTML = "";
-  const flavors = e.detail;
-  flavors.forEach((obj) => {
+  const { variant, flavors } = e.detail;
+  flavors.forEach((flavor) => {
     const $li = createNode("li");
-    const $ccFlavors = createNode("cc-flavors");
-    $ccFlavors.setAttribute("flavors", JSON.stringify(obj));
-    append($li, $ccFlavors);
+    const $ccFlavor = createNode("cc-flavor");
+    $ccFlavor.setAttribute("variant", variant);
+    $ccFlavor.setAttribute("flavor", JSON.stringify(flavor));
+    append($li, $ccFlavor);
     append($ul, $li);
   });
 });
 
-window.addEventListener("flavorsSelected", function (e) {
+window.addEventListener("flavorSelected", (e) => {
   const $ul = $("#cart");
-  const flavor = e.detail;
+  const { variant, flavor } = e.detail;
   const $li = createNode("li");
   const $ccCart = createNode("cc-cart");
-  $ccCart.setAttribute("flavor", JSON.stringify(flavor));
+  $ccCart.setAttribute("variant", variant);
+  $ccCart.setAttribute("flavor", flavor);
   append($li, $ccCart);
   append($ul, $li);
 });

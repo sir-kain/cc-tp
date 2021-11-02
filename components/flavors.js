@@ -1,17 +1,18 @@
 import { LitElement, css, html } from "lit";
 
-export class Flavors extends LitElement {
+export class Flavor extends LitElement {
   constructor() {
     super();
     // Declare reactive properties
-    this.flavors = {};
+    this.variant = {};
+    this.flavor = {};
   }
   // Render the UI as a function of component state
   render() {
-    if (typeof this.flavors !== "string") {
+    if (typeof this.flavor !== "string") {
       return html``;
     }
-    const { name, cpus, gpus, mem } = JSON.parse(this.flavors);
+    const { name, cpus, gpus, mem } = JSON.parse(this.flavor);
     return html`
       <p>${name} CPUs: ${cpus} GPUs: ${gpus} RAM: ${mem}</p>
       <button @click="${this.selectFlavor}">select</button>
@@ -20,15 +21,21 @@ export class Flavors extends LitElement {
 
   selectFlavor() {
     window.dispatchEvent(
-      new CustomEvent("flavorsSelected", { detail: JSON.parse(this.flavors) })
+      new CustomEvent("flavorSelected", {
+        detail: {
+          variant: this.variant,
+          flavor: this.flavor,
+        },
+      })
     );
   }
 }
-Flavors.properties = {
-  flavors: {},
+Flavor.properties = {
+  variant: {},
+  flavor: {},
 };
 // Define scoped styles right with your component, in plain CSS
-Flavors.styles = css`
+Flavor.styles = css`
   p {
     margin: 0;
     padding: 0;
@@ -51,4 +58,4 @@ Flavors.styles = css`
   }
 `;
 
-customElements.define("cc-flavors", Flavors);
+customElements.define("cc-flavor", Flavor);

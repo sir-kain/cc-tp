@@ -25,7 +25,9 @@ export class Variant extends LitElement {
       return;
     }
     window.dispatchEvent(
-      new CustomEvent("variantSelected", { detail: JSON.parse(this.flavors) })
+      new CustomEvent("variantSelected", {
+        detail: { variant: this.variant, flavors: JSON.parse(this.flavors) },
+      })
     );
   }
 }
