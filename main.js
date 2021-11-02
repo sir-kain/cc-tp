@@ -71,3 +71,20 @@ window.addEventListener("flavorSelected", (e) => {
   append($li, $ccCart);
   append($ul, $li);
 });
+
+window.addEventListener("incrementPrice", (e) => {
+  const $counter = $("#counter");
+  const total = parseFloat($counter.getAttribute("total"));
+  const { price } = e.detail;
+  const result = total + price;
+  $counter.innerHTML = result;
+  $counter.setAttribute("total", result);
+});
+window.addEventListener("decrementPrice", (e) => {
+  const $counter = $("#counter");
+  const total = parseFloat($counter.getAttribute("total"));
+  const { price } = e.detail;
+  const result = Math.max(0, total - price);
+  $counter.innerHTML = result;
+  $counter.setAttribute("total", result);
+});

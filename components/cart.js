@@ -6,9 +6,10 @@ export class Cart extends LitElement {
     // Declare reactive properties
     this.flavor = {};
     this.variant = {};
+    this.formattedPrice = 0;
   }
 
-  formatFlaforPrice(price) {
+  formatFlavorPrice(price) {
     return price * 41.904;
   }
   // Render the UI as a function of component state
@@ -18,16 +19,27 @@ export class Cart extends LitElement {
     }
     const { name: vName } = JSON.parse(this.variant);
     const { name: fName, price } = JSON.parse(this.flavor);
+    this.formattedPrice = this.formatFlavorPrice(price);
+    this.addToCart();
     return html`
-      <p>${vName} - ${fName} - ${this.formatFlaforPrice(price)}</p>
+      <p>${vName} - ${fName} - ${this.formattedPrice}</p>
       <button @click="${this.removeItemFromCart}">remove</button>
     `;
   }
 
+  addToCart() {
+    window.dispatchEvent(
+      new CustomEvent("incrementPrice", {
+        detail: { price: this.formattedPrice },
+      })
+    );
+  }
   removeItemFromCart() {
     this.closest("li").remove();
     window.dispatchEvent(
-      new CustomEvent("itemRemoved", { detail: JSON.parse(this.flavor) })
+      new CustomEvent("decrementPrice", {
+        detail: { price: this.formattedPrice },
+      })
     );
   }
 }

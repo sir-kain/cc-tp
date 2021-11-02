@@ -10,7 +10,7 @@ export class Variant extends LitElement {
   // Render the UI as a function of component state
   render() {
     if (typeof this.variant !== "string") {
-      return;
+      return html``;
     }
     const { name, logo } = JSON.parse(this.variant);
     return html`
