@@ -5,14 +5,11 @@ export class Variant extends LitElement {
     super();
     // Declare reactive properties
     this.variant = {};
-    this.flavors = {};
+    this.flavors = [];
   }
   // Render the UI as a function of component state
   render() {
-    if (typeof this.variant !== "string") {
-      return html``;
-    }
-    const { name, logo } = JSON.parse(this.variant);
+    const { name, logo } = this.variant;
     return html`
       <img src="${logo}" alt="${name}" width="30" height="30" />
       <span>${name}</span>
@@ -21,19 +18,16 @@ export class Variant extends LitElement {
   }
 
   selectVariant() {
-    if (typeof this.flavors !== "string") {
-      return;
-    }
     window.dispatchEvent(
       new CustomEvent("variantSelected", {
-        detail: { variant: this.variant, flavors: JSON.parse(this.flavors) },
+        detail: { variant: this.variant, flavors: this.flavors },
       })
     );
   }
 }
 Variant.properties = {
-  variant: {},
-  flavors: {},
+  variant: { type: Object },
+  flavors: { type: Array },
 };
 // Define scoped styles right with your component, in plain CSS
 Variant.styles = css`

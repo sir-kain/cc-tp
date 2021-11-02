@@ -9,10 +9,7 @@ export class Flavor extends LitElement {
   }
   // Render the UI as a function of component state
   render() {
-    if (typeof this.flavor !== "string") {
-      return html``;
-    }
-    const { name, cpus, gpus, mem } = JSON.parse(this.flavor);
+    const { name, cpus, gpus, mem } = this.flavor;
     return html`
       <p>${name} CPUs: ${cpus} GPUs: ${gpus} RAM: ${mem}</p>
       <button @click="${this.selectFlavor}">select</button>
@@ -31,8 +28,8 @@ export class Flavor extends LitElement {
   }
 }
 Flavor.properties = {
-  variant: {},
-  flavor: {},
+  variant: { type: Object },
+  flavor: { type: Object },
 };
 // Define scoped styles right with your component, in plain CSS
 Flavor.styles = css`

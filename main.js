@@ -54,7 +54,7 @@ window.addEventListener("variantSelected", (e) => {
   flavors.forEach((flavor) => {
     const $li = createNode("li");
     const $ccFlavor = createNode("cc-flavor");
-    $ccFlavor.setAttribute("variant", variant);
+    $ccFlavor.setAttribute("variant", JSON.stringify(variant));
     $ccFlavor.setAttribute("flavor", JSON.stringify(flavor));
     append($li, $ccFlavor);
     append($ul, $li);
@@ -66,8 +66,8 @@ window.addEventListener("flavorSelected", (e) => {
   const { variant, flavor } = e.detail;
   const $li = createNode("li");
   const $ccCart = createNode("cc-cart");
-  $ccCart.setAttribute("variant", variant);
-  $ccCart.setAttribute("flavor", flavor);
+  $ccCart.setAttribute("variant", JSON.stringify(variant));
+  $ccCart.setAttribute("flavor", JSON.stringify(flavor));
   append($li, $ccCart);
   append($ul, $li);
 });

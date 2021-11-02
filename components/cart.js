@@ -14,11 +14,8 @@ export class Cart extends LitElement {
   }
   // Render the UI as a function of component state
   render() {
-    if (typeof this.flavor !== "string" || typeof this.variant !== "string") {
-      return html``;
-    }
-    const { name: vName } = JSON.parse(this.variant);
-    const { name: fName, price } = JSON.parse(this.flavor);
+    const { name: vName } = this.variant;
+    const { name: fName, price } = this.flavor;
     this.formattedPrice = this.formatFlavorPrice(price);
     this.addToCart();
     return html`
@@ -44,8 +41,8 @@ export class Cart extends LitElement {
   }
 }
 Cart.properties = {
-  flavor: {},
-  variant: {},
+  variant: { type: Object },
+  flavor: { type: Object },
 };
 // Define scoped styles right with your component, in plain CSS
 Cart.styles = css`
