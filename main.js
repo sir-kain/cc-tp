@@ -1,6 +1,7 @@
 import "./style.css";
 import "./components/variant";
 import "./components/flavors";
+import "./components/cart";
 import response from "./data";
 
 function $(selector) {
