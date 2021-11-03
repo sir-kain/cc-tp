@@ -3,11 +3,9 @@ import { LitElement, css, html } from "lit";
 export class Flavor extends LitElement {
   constructor() {
     super();
-    // Declare reactive properties
     this.variant = {};
     this.flavor = {};
   }
-  // Render the UI as a function of component state
   render() {
     const { name, cpus, gpus, mem } = this.flavor;
     return html`
@@ -31,7 +29,6 @@ Flavor.properties = {
   variant: { type: Object },
   flavor: { type: Object },
 };
-// Define scoped styles right with your component, in plain CSS
 Flavor.styles = css`
   p {
     margin: 0;

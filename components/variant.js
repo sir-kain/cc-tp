@@ -3,11 +3,9 @@ import { LitElement, css, html } from "lit";
 export class Variant extends LitElement {
   constructor() {
     super();
-    // Declare reactive properties
     this.variant = {};
     this.flavors = [];
   }
-  // Render the UI as a function of component state
   render() {
     const { name, logo } = this.variant;
     return html`
@@ -29,7 +27,6 @@ Variant.properties = {
   variant: { type: Object },
   flavors: { type: Array },
 };
-// Define scoped styles right with your component, in plain CSS
 Variant.styles = css`
   :host {
     width: 100%;

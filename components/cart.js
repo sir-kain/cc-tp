@@ -3,7 +3,6 @@ import { LitElement, css, html } from "lit";
 export class Cart extends LitElement {
   constructor() {
     super();
-    // Declare reactive properties
     this.flavor = {};
     this.variant = {};
     this.formattedPrice = 0;
@@ -12,8 +11,6 @@ export class Cart extends LitElement {
   formatFlavorPrice(price) {
     return price * 41.904;
   }
-
-  // Render the UI as a function of component state
   render() {
     const { name: vName } = this.variant;
     const { name: fName, price } = this.flavor;
@@ -24,23 +21,23 @@ export class Cart extends LitElement {
       <button @click="${this.removeItemFromCart}">remove</button>
     `;
   }
-
   addToCart() {
     window.dispatchEvent(
-      new CustomEvent("incrementPrice", {
-        detail: { price: this.formattedPrice },
+      new CustomEvent("updateCounter", {
+        detail: { price: this.formattedPrice, type: "add" },
       })
     );
   }
   removeItemFromCart() {
     this.closest("li").remove();
     window.dispatchEvent(
-      new CustomEvent("decrementPrice", {
-        detail: { price: this.formattedPrice },
+      new CustomEvent("updateCounter", {
+        detail: { price: this.formattedPrice, type: "remove" },
       })
     );
   }
 }
+
 Cart.properties = {
   variant: { type: Object },
   flavor: { type: Object },
@@ -48,7 +45,7 @@ Cart.properties = {
     attribute: false,
   },
 };
-// Define scoped styles right with your component, in plain CSS
+
 Cart.styles = css`
   p {
     margin: 0;

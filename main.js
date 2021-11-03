@@ -72,19 +72,19 @@ window.addEventListener("flavorSelected", (e) => {
   append($ul, $li);
 });
 
-window.addEventListener("incrementPrice", (e) => {
+window.addEventListener("updateCounter", (e) => {
   const $counter = $("#counter");
   const total = parseFloat($counter.getAttribute("total"));
-  const { price } = e.detail;
-  const result = total + price;
-  $counter.innerHTML = result;
-  $counter.setAttribute("total", result);
-});
-window.addEventListener("decrementPrice", (e) => {
-  const $counter = $("#counter");
-  const total = parseFloat($counter.getAttribute("total"));
-  const { price } = e.detail;
-  const result = Math.max(0, total - price);
+  const { price, type } = e.detail;
+  let result = total;
+  switch (type) {
+    case "add":
+      result += price;
+      break;
+    case "remove":
+      result = Math.max(0, result - price);
+      break;
+  }
   $counter.innerHTML = result;
   $counter.setAttribute("total", result);
 });
