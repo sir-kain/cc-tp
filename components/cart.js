@@ -12,6 +12,7 @@ export class Cart extends LitElement {
   formatFlavorPrice(price) {
     return price * 41.904;
   }
+
   // Render the UI as a function of component state
   render() {
     const { name: vName } = this.variant;
@@ -43,6 +44,9 @@ export class Cart extends LitElement {
 Cart.properties = {
   variant: { type: Object },
   flavor: { type: Object },
+  formattedPrice: {
+    attribute: false,
+  },
 };
 // Define scoped styles right with your component, in plain CSS
 Cart.styles = css`
