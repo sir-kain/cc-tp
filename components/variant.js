@@ -9,7 +9,7 @@ export class Variant extends LitElement {
   render() {
     const { name, logo } = this.variant;
     return html`
-      <img src="${logo}" alt="${name}" width="30" height="30" />
+      <img src="${logo}" alt="${name}" width="30" height="30" loading="lazy" />
       <span>${name}</span>
       <button @click="${this.selectVariant}">select</button>
     `;
