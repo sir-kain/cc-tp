@@ -2,6 +2,7 @@ import "./style.css";
 import "./components/variant";
 import "./components/flavor";
 import "./components/cart";
+import "./data/index.json";
 import Big from "big.js";
 
 function $(selector) {
@@ -16,7 +17,7 @@ function append(parent, el) {
 async function getVariants() {
   let variants = [];
   try {
-    const response = await fetch("./data.json");
+    const response = await fetch("./data/index.json");
     if (!response.ok) {
       throw response;
     }
