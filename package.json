@@ -8,8 +8,9 @@
   },
   "devDependencies": {},
   "dependencies": {
-    "vite": "^2.6.4",
-    "big.js": "^6.1.1",
-    "lit": "^2.0.2"
+    "@dinero.js/calculator-bigint": "^2.0.0-alpha.2",
+    "dinero.js": "^2.0.0-alpha.8",
+    "lit": "^2.0.2",
+    "vite": "^2.6.4"
   }
 }

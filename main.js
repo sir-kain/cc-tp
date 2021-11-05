@@ -70,16 +70,22 @@ window.addEventListener("updateCounter", async (e) => {
   const $counter = $("#counter");
   const total = parseFloat($counter.getAttribute("total"));
   let { price, action } = e.detail;
-  const { Big } = await import("big.js");
-  price = new Big(price);
-  let result = new Big(total);
+  const { calculator } = await import(
+    "./node_modules/@dinero.js/calculator-bigint/dist/esm/calculator"
+  );
+  const { createDinero, add, toSnapshot, subtract } = await import("dinero.js");
+  const { EUR } = await import("@dinero.js/currencies");
+  const dineroBigint = createDinero({ calculator });
+
+  price = dineroBigint({ amount: price, currency: EUR });
+  let result = dineroBigint({ amount: total, currency: EUR });
 
   switch (action) {
     case "add":
-      result = result.plus(price);
+      result = toSnapshot(add(result, price)).amount;
       break;
     case "remove":
-      result = result.minus(price);
+      result = toSnapshot(subtract(result, price)).amount;
       break;
   }
   $counter.innerHTML = result;

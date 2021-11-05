@@ -2,6 +2,44 @@
 # yarn lockfile v1
 
 
+"@dinero.js/calculator-bigint@^2.0.0-alpha.2":
+  version "2.0.0-alpha.2"
+  resolved "https://registry.yarnpkg.com/@dinero.js/calculator-bigint/-/calculator-bigint-2.0.0-alpha.2.tgz#5f82250ea16903a35e5e15dbbe756283256f86cc"
+  integrity sha512-OeKH099LRETNX+E19nYNgjo5Mmui+00OU8SGtPDVSYCFg0mhOtZY1orKvFTsj6xlLU4U3kz2UkHtrrFkrV7ZCQ==
+  dependencies:
+    "@dinero.js/core" "2.0.0-alpha.2"
+
+"@dinero.js/calculator-number@2.0.0-alpha.8":
+  version "2.0.0-alpha.8"
+  resolved "https://registry.yarnpkg.com/@dinero.js/calculator-number/-/calculator-number-2.0.0-alpha.8.tgz#dbe9505d8d262415f995105a0cab7661924cc701"
+  integrity sha512-/L+N7g5DjcS6wlMb2hcOXWBKW2TGiG+vZDZr9ow0nsHUTdwtMarL1bmBH9fGldHhH2XsxcrjN9H+036yeNzh3Q==
+  dependencies:
+    "@dinero.js/core" "2.0.0-alpha.8"
+
+"@dinero.js/core@2.0.0-alpha.2":
+  version "2.0.0-alpha.2"
+  resolved "https://registry.yarnpkg.com/@dinero.js/core/-/core-2.0.0-alpha.2.tgz#dee9d4d1097006016fdfc0db59e37b0db03134b9"
+  integrity sha512-+qVC3S0tsC9R4SI1AM2POfMVnDEBXmjFrYZQOPEJnDAOPDblK2FVQpuAyqqgq1zZiv+aTcdxHlt3/YoJZwhHVg==
+  dependencies:
+    "@dinero.js/currencies" "2.0.0-alpha.2"
+
+"@dinero.js/core@2.0.0-alpha.8":
+  version "2.0.0-alpha.8"
+  resolved "https://registry.yarnpkg.com/@dinero.js/core/-/core-2.0.0-alpha.8.tgz#9a3dc23c72a300a46d2881537dcf911e983029c0"
+  integrity sha512-3jaw2j6J/SshlCZz5KhHkh8zP47HRmt9RpnjR0BJs2awpweVuZIyyX9qzGVUEVpml9IwzQ1U+YdXevhOxtcDgg==
+  dependencies:
+    "@dinero.js/currencies" "2.0.0-alpha.8"
+
+"@dinero.js/currencies@2.0.0-alpha.2":
+  version "2.0.0-alpha.2"
+  resolved "https://registry.yarnpkg.com/@dinero.js/currencies/-/currencies-2.0.0-alpha.2.tgz#198defb18716be73ba22849524b3cde0471910cf"
+  integrity sha512-CCJxikgT8qkSZHe42Eo2eMYhDwK6eZ8VU/8Kfysms6t/8B4YgoibcB+bYn/Veu5ZZVnmN+K4mJJUHzWR86l0pg==
+
+"@dinero.js/currencies@2.0.0-alpha.8":
+  version "2.0.0-alpha.8"
+  resolved "https://registry.yarnpkg.com/@dinero.js/currencies/-/currencies-2.0.0-alpha.8.tgz#aa02a04ce3685a9b06a7ce12f8c924726386c3fd"
+  integrity sha512-zApiqtuuPwjiM9LJA5/kNcT48VSHRiz2/mktkXjIpfxrJKzthXybUAgEenExIH6dYhLDgVmsLQZtZFOsdYl0Ag==
+
 "@lit/reactive-element@^1.0.0":
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/@lit/reactive-element/-/reactive-element-1.0.1.tgz#853cacd4d78d79059f33f66f8e7b0e5c34bee294"
@@ -12,10 +50,14 @@
   resolved "https://registry.yarnpkg.com/@types/trusted-types/-/trusted-types-2.0.2.tgz#fc25ad9943bcac11cceb8168db4f275e0e72e756"
   integrity sha512-F5DIZ36YVLE+PN+Zwws4kJogq47hNgX3Nx6WyDJ3kcplxyke3XIzB8uK5n/Lpm1HBsbGzd6nmGehL8cPekP+Tg==
 
-big.js@^6.1.1:
-  version "6.1.1"
-  resolved "https://registry.yarnpkg.com/big.js/-/big.js-6.1.1.tgz#63b35b19dc9775c94991ee5db7694880655d5537"
-  integrity sha512-1vObw81a8ylZO5ePrtMay0n018TcftpTA5HFKDaSuiUDBo8biRBtjIobw60OpwuvrGk+FsxKamqN4cnmj/eXdg==
+dinero.js@^2.0.0-alpha.8:
+  version "2.0.0-alpha.8"
+  resolved "https://registry.yarnpkg.com/dinero.js/-/dinero.js-2.0.0-alpha.8.tgz#5b74042ac807cb3ac372b16fe7a0565916d12f5a"
+  integrity sha512-6bl+g6oh6iQ6vPR5Pd4qr7D+P5e51GYRUT3jl8HYqYeejYC5sd9OVTTbXC3WU7L25mAIbOm+diiTVz1rL4QLwg==
+  dependencies:
+    "@dinero.js/calculator-number" "2.0.0-alpha.8"
+    "@dinero.js/core" "2.0.0-alpha.8"
+    "@dinero.js/currencies" "2.0.0-alpha.8"
 
 esbuild-android-arm64@0.13.10:
   version "0.13.10"
