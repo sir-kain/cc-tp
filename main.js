@@ -16,13 +16,13 @@ function append(parent, el) {
 async function getVariants() {
   let variants = [];
   try {
-    const response = await fetch("./data/index.json");
+    const response = await fetch("./data.json");
     if (!response.ok) {
       throw response;
     }
     variants = await response.json();
   } catch (error) {
-    console.error("getVariants ==>", error);
+    console.error("getVariants =>", error);
   }
   return variants;
 }
