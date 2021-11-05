@@ -24,7 +24,7 @@ export class Cart extends LitElement {
   addToCart() {
     window.dispatchEvent(
       new CustomEvent("updateCounter", {
-        detail: { price: this.formattedPrice, type: "add" },
+        detail: { price: this.formattedPrice, action: "add" },
       })
     );
   }
@@ -32,7 +32,7 @@ export class Cart extends LitElement {
     this.closest("li").remove();
     window.dispatchEvent(
       new CustomEvent("updateCounter", {
-        detail: { price: this.formattedPrice, type: "remove" },
+        detail: { price: this.formattedPrice, action: "remove" },
       })
     );
   }

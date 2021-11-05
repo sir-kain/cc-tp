@@ -3,6 +3,7 @@ import "./components/variant";
 import "./components/flavor";
 import "./components/cart";
 import response from "./data";
+import Big from "big.js";
 
 function $(selector) {
   return document.querySelector(selector);
@@ -75,14 +76,16 @@ window.addEventListener("flavorSelected", (e) => {
 window.addEventListener("updateCounter", (e) => {
   const $counter = $("#counter");
   const total = parseFloat($counter.getAttribute("total"));
-  const { price, type } = e.detail;
-  let result = total;
-  switch (type) {
+  let { price, action } = e.detail;
+  price = new Big(price);
+  let result = new Big(total);
+
+  switch (action) {
     case "add":
-      result += price;
+      result = result.plus(price);
       break;
     case "remove":
-      result = Math.max(0, result - price);
+      result = result.minus(price);
       break;
   }
   $counter.innerHTML = result;

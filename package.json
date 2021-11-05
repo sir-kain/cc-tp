@@ -9,6 +9,7 @@
   "devDependencies": {},
   "dependencies": {
     "vite": "^2.6.4",
+    "big.js": "^6.1.1",
     "lit": "^2.0.2"
   }
 }
