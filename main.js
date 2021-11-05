@@ -2,7 +2,7 @@ import "./style.css";
 import "./components/variant";
 import "./components/flavor";
 import "./components/cart";
-import "./data/index.json";
+import variants from "./data/index.json";
 
 function $(selector) {
   return document.querySelector(selector);
@@ -13,22 +13,23 @@ function createNode(element) {
 function append(parent, el) {
   return parent.appendChild(el);
 }
-async function getVariants() {
-  let variants = [];
-  try {
-    const response = await fetch("./data/index.json");
-    if (!response.ok) {
-      throw response;
-    }
-    variants = await response.json();
-  } catch (error) {
-    console.error("getVariants =>", error);
-  }
-  return variants;
-}
+// async function getVariants() {
+//   let variants = [];
+//   try {
+//     const response = await fetch(
+//       "https://api.clever-cloud.com/v2/products/instances"
+//     );
+//     if (!response.ok) {
+//       throw response;
+//     }
+//     variants = await response.json();
+//   } catch (error) {
+//     console.error("getVariants =>", error);
+//   }
+//   return variants;
+// }
 
 window.addEventListener("DOMContentLoaded", async () => {
-  const variants = await getVariants();
   const $ul = $("#variants");
   variants.forEach(({ variant, flavors }) => {
     const $li = createNode("li");
