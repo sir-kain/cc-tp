@@ -3,7 +3,6 @@ import "./components/variant";
 import "./components/flavor";
 import "./components/cart";
 import "./data/index.json";
-import Big from "big.js";
 
 function $(selector) {
   return document.querySelector(selector);
@@ -66,10 +65,11 @@ window.addEventListener("flavorSelected", (e) => {
   append($ul, $li);
 });
 
-window.addEventListener("updateCounter", (e) => {
+window.addEventListener("updateCounter", async (e) => {
   const $counter = $("#counter");
   const total = parseFloat($counter.getAttribute("total"));
   let { price, action } = e.detail;
+  const { Big } = await import("big.js");
   price = new Big(price);
   let result = new Big(total);
 
