@@ -6,11 +6,10 @@
     "build": "vite build",
     "serve": "vite preview"
   },
-  "devDependencies": {},
-  "dependencies": {
-    "@dinero.js/calculator-bigint": "^2.0.0-alpha.2",
-    "dinero.js": "^2.0.0-alpha.8",
-    "lit": "^2.0.2",
+  "devDependencies": {
     "vite": "^2.6.4"
+  },
+  "dependencies": {
+    "lit": "^2.0.2"
   }
 }
