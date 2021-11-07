@@ -5,26 +5,23 @@ export class Cart extends LitElement {
     super();
     this.flavor = {};
     this.variant = {};
-    this.formattedPrice = 0;
+    this.price = 0;
   }
 
-  formatFlavorPrice(price) {
-    return price * 41.904;
-  }
   render() {
     const { name: vName } = this.variant;
     const { name: fName, price } = this.flavor;
-    this.formattedPrice = this.formatFlavorPrice(price);
+    this.price = price;
     this.addToCart();
     return html`
-      <p>${vName} ${fName} <b>${this.formattedPrice}</b></p>
+      <p>${vName} ${fName} <b>${price * 41.904}</b></p>
       <button @click="${this.removeItemFromCart}">remove</button>
     `;
   }
   addToCart() {
     window.dispatchEvent(
       new CustomEvent("updateCounter", {
-        detail: { price: this.formattedPrice, action: "add" },
+        detail: { price: this.price, action: "add" },
       })
     );
   }
@@ -32,7 +29,7 @@ export class Cart extends LitElement {
     this.closest("li").remove();
     window.dispatchEvent(
       new CustomEvent("updateCounter", {
-        detail: { price: this.formattedPrice, action: "remove" },
+        detail: { price: this.price, action: "remove" },
       })
     );
   }
@@ -41,7 +38,7 @@ export class Cart extends LitElement {
 Cart.properties = {
   variant: { type: Object },
   flavor: { type: Object },
-  formattedPrice: {
+  price: {
     attribute: false,
   },
 };

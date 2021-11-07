@@ -2,6 +2,7 @@ import "./style.css";
 import "./components/variant";
 import "./components/flavor";
 import "./components/cart";
+import "./components/counter";
 
 function $(selector) {
   return document.querySelector(selector);
@@ -114,7 +115,6 @@ window.addEventListener("updateCounter", async (e) => {
   const total = parseFloat($counter.getAttribute("total"));
   let { price, action } = e.detail;
   let result = total;
-
   switch (action) {
     case "add":
       result += price;
@@ -125,4 +125,8 @@ window.addEventListener("updateCounter", async (e) => {
   }
   $counter.innerHTML = result;
   $counter.setAttribute("total", result);
+});
+
+window.addEventListener("updateCounter", async (e) => {
+  $("cc-counter").setAttribute("price", e.detail.price);
 });
