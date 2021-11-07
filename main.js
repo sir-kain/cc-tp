@@ -69,6 +69,7 @@ window.addEventListener("flavorSelected", (e) => {
 // =================================
 // Dinerojs version that not working
 // Blocked by TypeError: a.cmp is not a function
+// Maybe https://github.com/dinerojs/dinero.js/issues/58 should help
 // =================================
 // window.addEventListener("updateCounter", async (e) => {
 //   const $counter = $("#counter");

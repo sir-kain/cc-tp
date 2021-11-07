@@ -17,7 +17,7 @@ export class Cart extends LitElement {
     this.formattedPrice = this.formatFlavorPrice(price);
     this.addToCart();
     return html`
-      <p>${vName} - ${fName} - ${this.formattedPrice}</p>
+      <p>${vName} ${fName} <b>${this.formattedPrice}</b></p>
       <button @click="${this.removeItemFromCart}">remove</button>
     `;
   }
