@@ -67,66 +67,9 @@ window.addEventListener("flavorSelected", (e) => {
   append($ul, $li);
 });
 
-// =================================
-// Dinerojs version that not working
-// Blocked by TypeError: a.cmp is not a function
-// Maybe https://github.com/dinerojs/dinero.js/issues/58 should help
-// =================================
-// window.addEventListener("updateCounter", async (e) => {
-//   const $counter = $("#counter");
-//   const total = parseFloat($counter.getAttribute("total"));
-//   let { price, action } = e.detail;
-
-//   const { Big } = await import("big.js");
-//   const { createDinero, add, toSnapshot, subtract } = await import("dinero.js");
-//   const { EUR } = await import("@dinero.js/currencies");
-
-//   const calculator = {
-//     add: (a, b) => a.plus(b),
-//     compare: (a, b) => a.cmp(b),
-//     decrement: (v) => v.minus(new Big(1)),
-//     increment: (v) => v.plus(new Big(1)),
-//     integerDivide: (a, b) => a.div(b).round(0, Big.roundDown),
-//     modulo: (a, b) => a.mod(b),
-//     multiply: (a, b) => a.times(b),
-//     power: (a, b) => a.pow(Number(b)),
-//     subtract: (a, b) => a.minus(b),
-//     toNumber: (v) => v.toNumber(),
-//     zero: () => new Big(0),
-//   };
-//   const dineroBigint = createDinero({ calculator });
-//   price = dineroBigint({ amount: price, currency: EUR });
-//   let result = dineroBigint({ amount: total, currency: EUR });
-
-//   switch (action) {
-//     case "add":
-//       result = toSnapshot(add(result, price)).amount;
-//       break;
-//     case "remove":
-//       result = toSnapshot(subtract(result, price)).amount;
-//       break;
-//   }
-//   $counter.innerHTML = result;
-//   $counter.setAttribute("total", result);
-// });
-
 window.addEventListener("updateCounter", async (e) => {
-  const $counter = $("#counter");
-  const total = parseFloat($counter.getAttribute("total"));
+  const $counter = $("cc-counter");
   let { price, action } = e.detail;
-  let result = total;
-  switch (action) {
-    case "add":
-      result += price;
-      break;
-    case "remove":
-      result -= price;
-      break;
-  }
-  $counter.innerHTML = result;
-  $counter.setAttribute("total", result);
-});
-
-window.addEventListener("updateCounter", async (e) => {
-  $("cc-counter").setAttribute("price", e.detail.price);
+  $counter.setAttribute("price", price);
+  $counter.setAttribute("action", action);
 });
