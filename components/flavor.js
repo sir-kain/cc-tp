@@ -8,6 +8,7 @@ export class Flavor extends LitElement {
   }
   render() {
     const { name, cpus, gpus, mem } = this.flavor;
+    console.log("this.flavor ==>", this.flavor);
     return html`
       <p>${name} CPUs: ${cpus} GPUs: ${gpus} RAM: ${mem}</p>
       <button @click="${this.selectFlavor}">select</button>

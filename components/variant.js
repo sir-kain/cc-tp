@@ -8,6 +8,7 @@ export class Variant extends LitElement {
   }
   render() {
     const { name, logo } = this.variant;
+    console.log("this.variant ==>", this.variant);
     return html`
       <img src="${logo}" alt="${name}" width="30" height="30" loading="lazy" />
       <span>${name}</span>

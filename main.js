@@ -7,12 +7,15 @@ import "./components/counter";
 function $(selector) {
   return document.querySelector(selector);
 }
+
 function createNode(element) {
   return document.createElement(element);
 }
+
 function append(parent, el) {
   return parent.appendChild(el);
 }
+
 async function getVariants() {
   let variants = [];
   try {
@@ -35,8 +38,8 @@ window.addEventListener("DOMContentLoaded", async () => {
   variants.forEach(({ variant, flavors }) => {
     const $li = createNode("li");
     const $ccVariant = createNode("cc-variant");
-    $ccVariant.setAttribute("variant", JSON.stringify(variant));
-    $ccVariant.setAttribute("flavors", JSON.stringify(flavors));
+    $ccVariant.variant = variant;
+    $ccVariant.flavors = flavors;
     append($li, $ccVariant);
     append($ul, $li);
   });
@@ -49,8 +52,8 @@ window.addEventListener("variantSelected", (e) => {
   flavors.forEach((flavor) => {
     const $li = createNode("li");
     const $ccFlavor = createNode("cc-flavor");
-    $ccFlavor.setAttribute("variant", JSON.stringify(variant));
-    $ccFlavor.setAttribute("flavor", JSON.stringify(flavor));
+    $ccFlavor.variant = variant;
+    $ccFlavor.flavor = flavor;
     append($li, $ccFlavor);
     append($ul, $li);
   });
@@ -61,8 +64,8 @@ window.addEventListener("flavorSelected", (e) => {
   const { variant, flavor } = e.detail;
   const $li = createNode("li");
   const $ccCart = createNode("cc-cart");
-  $ccCart.setAttribute("variant", JSON.stringify(variant));
-  $ccCart.setAttribute("flavor", JSON.stringify(flavor));
+  $ccCart.variant = variant;
+  $ccCart.flavor = flavor;
   append($li, $ccCart);
   append($ul, $li);
 });
@@ -70,6 +73,6 @@ window.addEventListener("flavorSelected", (e) => {
 window.addEventListener("updateCounter", async (e) => {
   const $counter = $("cc-counter");
   let { price, action } = e.detail;
-  $counter.setAttribute("price", price);
-  $counter.setAttribute("action", action);
+  $counter.price = price;
+  $counter.action = action;
 });
