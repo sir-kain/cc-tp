@@ -1,6 +1,5 @@
 import { LitElement, css, html } from "lit";
 
-
 export class Counter extends LitElement {
   constructor() {
     super();
@@ -35,7 +34,7 @@ Counter.properties = {
       return true;
     },
     converter: (value) => {
-      return parseFloat(value) * 41.904
+      return parseFloat(value) * 41.904;
     },
   },
   action: { type: String },
