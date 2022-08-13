@@ -73,6 +73,6 @@ window.addEventListener("flavorSelected", (e) => {
 window.addEventListener("updateCounter", async (e) => {
   const $counter = $("cc-counter");
   let { price, action } = e.detail;
-  $counter.setAttribute("price", price);
-  $counter.setAttribute("action", action);
+  $counter.price = price;
+  $counter.action = action;
 });
